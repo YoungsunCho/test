@@ -2,17 +2,15 @@ name: Auto merge main branch to dev branch
 on:
   push:
     branches:
-      - 'master'
+      - "master"
 jobs:
-  sync-branch:
+  merge-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-
-      - name: Merge master -> dev
-        uses: devmasx/merge-branch@master
+      - uses: actions/checkout@v2
+      - uses: everlytic/branch-merge@1.1.2
         with:
-          type: now
-          from_branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_ref: master
           target_branch: dev
-          github_token: ${{ secrets.TOKEN }}
+          commit_message_template: "[Automated] Merged {source_ref} into target {target_branch}"
