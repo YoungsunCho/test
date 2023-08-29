@@ -5,8 +5,5 @@ add 2
 
 add 3
 
-add 4
-<<<<<<< HEAD
+add 4 5
 add 5
-=======
->>>>>>> fd160cfa907cf3bb9eff2fdbcdea39a01cf58967
